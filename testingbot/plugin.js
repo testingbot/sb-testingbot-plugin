@@ -93,7 +93,7 @@ testingbot.settingspanel.show = function(sel1, callback) {
   if (testingbot.settingspanel.dialog) { return; }
   jQuery('#edit-rc-connecting').show();
   jQuery.ajax(
-    sel1 ? "http://api.testingbot.com/v1/browsers?type=rc" : "http://api.testingbot.com/v1/browsers?type=webdriver",
+    sel1 ? "https://api.testingbot.com/v1/browsers?type=rc" : "https://api.testingbot.com/v1/browsers?type=webdriver",
     {
       success: function(testingbotBrowsers) {
         jQuery('#edit-rc-connecting').hide();
@@ -208,7 +208,7 @@ builder.registerPostLoadHook(function() {
     jQuery('#edit-rc-connecting').show();
     testingbot.settingspanel.show(/*sel1*/ false, function(result) {
       jQuery.ajax(
-        "http://api.testingbot.com/v1/user",
+        "https://api.testingbot.com/v1/user",
         {
           beforeSend: function(xhr){ 
             xhr.setRequestHeader('Authorization', 'Basic ' + btoa(result.key + ":" + result.secret));
@@ -254,7 +254,7 @@ builder.registerPostLoadHook(function() {
     jQuery('#edit-rc-connecting').show();
     testingbot.settingspanel.show(/* sel1 */ true, function(result) {
       jQuery.ajax(
-        "http://api.testingbot.com/v1/user",
+        "https://api.testingbot.com/v1/user",
         {
           beforeSend: function(xhr){ 
             xhr.setRequestHeader('Authorization', 'Basic ' + btoa(result.key + ":" + result.secret));
